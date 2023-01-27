@@ -1,0 +1,71 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class materia {
+   private:
+    string clave;
+    string nombre;
+    string maestro;
+   public:
+       materia(string clave, string nombre, string maestro) {
+           this->clave = clave;
+           this->nombre = nombre;
+           this->maestro = maestro;
+       }
+       void cambiarClave(string nuevaClave) {
+           clave = nuevaClave;
+       }
+       void cambiarMaestro(string nuevoMaestro) {
+           maestro = nuevoMaestro;
+       }
+       void imprimirDatos(){
+           cout << " Clave: " << clave << endl;
+           cout << " Nombre: " << nombre << endl;
+           cout << " Maestro: " << maestro << endl;
+       }
+
+};
+int main() {
+    materia Programacion("I5547", "Programacion", "Alma Gloria");
+    materia BaseDatos("I5342", "Base de Datos", "Ruben Ortega");
+    int opcion;
+    while (true) {
+        cout << "menu:" << endl;
+        cout << "1-cambiar la clave de Programacion" << endl;
+        cout << "2-cambiar maestro de Bases de datos" << endl;
+        cout << "3-imprimir datos de Base de Datos" << endl;
+        cout << "4-salir" << endl;
+        cin >> opcion;
+        switch (opcion) {
+        case 1:
+            {
+                string nuevaClave;
+                cout << "Ingrese nueva clave: ";
+                cin >> nuevaClave;
+                Programacion.cambiarClave(nuevaClave);
+                break;
+                }
+        case 2:
+            {
+                string nuevoMaestro;
+                cout << "ingrese nuevo maestro: ";
+                cin >>nuevoMaestro;
+                BaseDatos.cambiarMaestro(nuevoMaestro);
+                break;
+                }
+        case 3:
+            {
+                BaseDatos.imprimirDatos();
+                break;
+            }
+        case 4:
+            {
+                return 0;
+                break;
+            }
+        default:
+            cout << "Opcion no valda" << endl;
+            break;
+        }
+    }
+}
